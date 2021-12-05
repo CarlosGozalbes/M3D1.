@@ -147,7 +147,8 @@ const  angleType = function(angle) {
     }
     return "Straight angle.";
   }
-  
+
+
 
 /* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
 
@@ -174,15 +175,40 @@ const maxEven = function (array) {
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative. 
     Return `true` if that's the case, return `false` if it's not. */
-
+    function positive_negative(x, y)
+    {
+      if ((x < 0 && y > 0) || x > 0 && y < 0) 
+      {
+        return true;
+      }
+      else 
+      {
+        return false;
+      }
+    }
 
 /* 16. Create a function to create and return a new string where the first 3 characters and in lower case and the others are in upper case. 
     If the string's length is less than 3, convert the whole string into uppercase. Pass the original string as a parameter. */
-
+    function upper_lower(str) {
+      if (str.length <= 3) {
+        return str.toUpperCase();
+      }
+      front_part = (str.substring(0, 3)).toLowerCase();
+      back_part = str.substring(3, str.length);  
+      return front_part + back_part;
+    }
+    
 
 /* 17. Create a function to calculate the sum of two integers (passed as parameters). 
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
-
+    function sortaSum(x, y) 
+    {
+     const sum_nums = x + y;
+     if (sum_nums >= 50 && sum_nums <= 80) {
+       return 65;
+     }
+     return 80;
+   }
 
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example: 
     The number has 3 as a factor ⇒ return `Diego`
@@ -191,7 +217,32 @@ const maxEven = function (array) {
     If the number does not have 3,5, or 7, return the original number. 
     ⚠️ The factor is an integer which evenly divides a number without leaving a remainder. One number can have more than one factor, in that case you should return both names. 
 Ex. 15 has both 3 and 5 has factors: the function will return `DiegoRiccardo` */
+function numToString(num) {
+  let str = "";
 
+  if (num % 3 !== 0 && num % 7 !== 0 && num % 5 !== 0) return num;
+
+  if (num % 3 === 0) str += "Diego";
+  if (num % 5 === 0) str += "Riccardo";
+  if (num % 7 === 0) str += "Stefano";
+  return str;
+}
 
 /* 19. Create a function that that takes a phrase as a parameter and returns its acronym.
 Ex. British Broadcasting Corporation returns `BBC` */
+
+function acr(phrase){
+  let words
+  let acronym
+  let nextWord
+
+  words = phrase.split(' ');
+  acronym = "";
+  i = 0
+  while (i<words.length) {
+          nextWord = words[i];
+          acronym = acronym + nextWord.charAt(0);
+          i = i + 1 ;
+  }
+  return acronym
+}
